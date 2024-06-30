@@ -1,13 +1,13 @@
-package com.example.yas;
+package com.example.yas.ui;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.yas.R;
+import com.example.yas.ui.Login;
 
 public class Splach extends Activity implements View.OnClickListener {
     LinearLayout click;
@@ -23,7 +23,7 @@ public class Splach extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent obj=new Intent(this,Login.class);
+        Intent obj=new Intent(this, Login.class);
         startActivity(obj);
     }
 

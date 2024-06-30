@@ -1,4 +1,4 @@
-package com.example.yas;
+package com.example.yas.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,10 +7,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+
+import com.example.yas.R;
+import com.example.yas.data.model.User;
+import com.example.myapplication.ui.login.LoginViewModel;
+
 
 public class Login extends Activity implements View.OnClickListener {
+
+    private LoginViewModel loginViewModel;
     EditText name,passeword;
     Button ok, reset,reagister;
     String name0="yasen";
@@ -24,6 +32,7 @@ public class Login extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.log_in);
+//        loginViewModel =  new ViewModelProvider(this).get(LoginViewModel.class);
         name=findViewById(R.id.editTextText1);
         passeword=findViewById(R.id.editTextTextPassword);
         ok=findViewById(R.id.button);
@@ -45,7 +54,7 @@ public class Login extends Activity implements View.OnClickListener {
         {
             if(name1.equals(name0)&&passeword1.equals(pass)||name1.equals("yasen "))
             {
-                Intent obj=new Intent(this,MainActivity.class);
+                Intent obj=new Intent(this, MainActivity.class);
                 startActivity(obj);
                 Toast.makeText(this,"Thanks for your visit",Toast.LENGTH_LONG).show();
             }
@@ -59,7 +68,7 @@ public class Login extends Activity implements View.OnClickListener {
         }
         if(R.id.button8==view.getId())
         {
-            Intent obj2=new Intent(Login.this, Recyclerview.class);
+            Intent obj2=new Intent(Login.this, Rragister_activity.class);
             startActivity(obj2);
             Toast.makeText(this,"Sorry ; the entry is wrong",Toast.LENGTH_LONG).show();
         }

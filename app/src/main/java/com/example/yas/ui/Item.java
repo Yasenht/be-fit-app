@@ -1,4 +1,4 @@
-package com.example.yas;
+package com.example.yas.ui;
 
 public class Item {
     String name,discriptoion;

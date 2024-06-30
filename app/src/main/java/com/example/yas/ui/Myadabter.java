@@ -1,11 +1,14 @@
-package com.example.yas;
+package com.example.yas.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.yas.R;
+import com.example.yas.ui.Item;
+import com.example.yas.ui.MyviewOrder;
 
 import java.util.List;
 

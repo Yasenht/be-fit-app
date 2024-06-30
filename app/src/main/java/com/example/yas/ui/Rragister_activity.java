@@ -1,4 +1,4 @@
-package com.example.yas;
+package com.example.yas.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.yas.R;
 
 public class Rragister_activity extends Activity implements View.OnClickListener {
 
@@ -21,20 +21,20 @@ public class Rragister_activity extends Activity implements View.OnClickListener
         username=findViewById(R.id.user_name);
         password=findViewById(R.id.Password3);
         date=findViewById(R.id.Date);
-        ok=findViewById(R.id.button3);
+        ok=findViewById(R.id.button1);
         ok.setOnClickListener(this);
-        reset=findViewById(R.id.button2);
+        reset=findViewById(R.id.button22);
         reset.setOnClickListener(this);
 
     }
     public void onClick(View view) {
         String username2=username.getText().toString();
         String password2=password.getText().toString();
-        if(R.id.button2==view.getId())
+        if(R.id.button22==view.getId())
         {
             if(!(username.getText().equals(""))&&!(password.getText().equals("")))
             {
-                Intent obj=new Intent(Rragister_activity.this,MainActivity.class);
+                Intent obj=new Intent(Rragister_activity.this, MainActivity.class);
                 startActivity(obj);
                 Toast.makeText(this,"Thanks for your visit",Toast.LENGTH_LONG).show();
             }
