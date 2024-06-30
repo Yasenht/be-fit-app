@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_start_color">#FF6F00</color> <!-- برتقالي غامق -->
+    <color name="background_end_color">#FFD740</color> <!-- برتقالي فاتح -->
+    <color name="title_color">#FFFFFF</color> <!-- لون العنوان أبيض -->
+    <color name="edittext_background">#FFFFFF</color> <!-- لون خلفية حقول الإدخال أبيض -->
+    <color name="edittext_text_color">#000000</color> <!-- لون نص حقول الإدخال أسود -->
+    <color name="edittext_hint_color">#757575</color> <!-- لون النص التلميحي لحقول الإدخال رمادي -->
+    <color name="button_background_color">#FF6F00</color> <!-- لون خلفية الأزرار برتقالي غامق -->
+    <color name="button_text_color">#FFFFFF</color> <!-- لون نص الأزرار أبيض -->
+
+</resources>
