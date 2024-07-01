@@ -2,31 +2,50 @@ package com.example.yas.data.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.yas.data.dao.UserDao;
 import com.example.yas.data.db.AppDatabase;
 import com.example.yas.data.model.User;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class UserRepository {
     private UserDao userDao;
-    private List<User> allUsers;
+    private LiveData<List<User>> allUsers;
     private ExecutorService executorService;
 
     public UserRepository(Application application) {
-        AppDatabase database = AppDatabase.getInstance(application);
-        userDao = database.userDao();
-        executorService = Executors.newFixedThreadPool(2);
-        allUsers = userDao.getAllUsers();
-    }
+        try {
+            AppDatabase database = AppDatabase.getInstance(application);
+            userDao = database.userDao();
+            executorService = Executors.newFixedThreadPool(2);
+            allUsers = _getAllUsers();
+            _getAllUsers();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("UserRepository", Objects.requireNonNull(e.getMessage()));
+        }
 
-    public List<User> getAllUsers() {
+    }
+    private LiveData<List<User>> _getAllUsers() {
+        MutableLiveData<List<User>> usersLiveData = new MutableLiveData<>();
+        executorService.execute(() -> {
+            List<User> users = userDao.getAllUsers();
+            usersLiveData.postValue(users);
+        });
+        return usersLiveData;
+    }
+    public LiveData<List<User>> getAllUsers() {
         return allUsers;
     }
 
@@ -42,26 +61,14 @@ public class UserRepository {
         executorService.execute(() -> userDao.delete(user));
     }
 
-    public User getUserByEmailAndPassword(String email, String password) {
-        try {
-            return new GetUserByEmailAndPasswordAsyncTask(userDao).execute(email, password).get();
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public LiveData<User> getUserByEmailAndPassword(String email, String password) {
+        MutableLiveData<User> userLiveData = new MutableLiveData<>();
+        executorService.execute(() -> {
+            User user = userDao.getUserByEmailAndPassword(email, password);
+            userLiveData.postValue(user);
+        });
+        return userLiveData;
     }
 
 
-    private static class GetUserByEmailAndPasswordAsyncTask extends AsyncTask<String, Void, User> {
-        private UserDao userDao;
-
-        private GetUserByEmailAndPasswordAsyncTask(UserDao userDao) {
-            this.userDao = userDao;
-        }
-
-        @Override
-        protected User doInBackground(String... params) {
-            return userDao.getUserByEmailAndPassword(params[0], params[1]);
-        }
-    }
 }

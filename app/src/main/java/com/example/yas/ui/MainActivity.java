@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView=findViewById(R.id.re);
         List<Item> items=new ArrayList<Item>();
-        items.add(new Item("الصدر","هل انتم مستعدين لرحلة مثيرة من التمارين الصدر ؟ اطلعو علي تمارين الصدر الجدابة و القوه لدينا للحصول علي صدر مثالي ينبعت منه القوه و الثقة ",R.drawable.ic_launcher_foreground));
-        items.add(new Item("الظهر","hhhh",R.drawable.ic_launcher_foreground));
-        items.add(new Item("الارجل","hhhh",R.drawable.ic_launcher_foreground));
-        items.add(new Item("عضلات المعدة","hhhh",R.drawable.ic_launcher_foreground));
-        items.add(new Item("الاكتاف","hhhh",R.drawable.ic_launcher_foreground));
+        items.add(new Item("تمارين الرجلين"," ",R.drawable.ic_launcher_foreground));
+        items.add(new Item(" تمارين الظهر","hhhh",R.drawable.ic_launcher_foreground));
+        items.add(new Item("تمارين اليدين","hhhh",R.drawable.ic_launcher_foreground));
+        items.add(new Item(" تمارين عضلات المعدة","hhhh",R.drawable.ic_launcher_foreground));
+        items.add(new Item(" تمارين الاكتاف","hhhh",R.drawable.ic_launcher_foreground));
         items.add(new Item("الترابيس","hhhh",R.drawable.ic_launcher_foreground));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new Myadabter(getApplicationContext(),items));

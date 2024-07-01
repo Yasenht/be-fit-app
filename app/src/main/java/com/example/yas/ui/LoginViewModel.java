@@ -4,20 +4,19 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.LiveData;
 
 import com.example.yas.data.model.User;
 import com.example.yas.data.repository.UserRepository;
 
-public class LoginViewModelFactory implements ViewModelProvider.Factory {
+public class LoginViewModel extends AndroidViewModel {
     private final UserRepository repository;
-
-    public LoginViewModelFactory(@NonNull Application application) {
-        super();
+    public LoginViewModel(@NonNull Application application) {
+        super(application);
         repository = new UserRepository(application);
     }
 
-    public User getUserByEmailAndPassword(String email, String password) {
+    public LiveData<User> getUserByEmailAndPassword(String email, String password) {
         return repository.getUserByEmailAndPassword(email, password);
     }
 }
