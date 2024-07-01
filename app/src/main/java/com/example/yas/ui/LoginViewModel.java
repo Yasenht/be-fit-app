@@ -1,18 +1,19 @@
-package com.example.myapplication.ui.login;
+package com.example.yas.ui;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.yas.data.model.User;
 import com.example.yas.data.repository.UserRepository;
 
-public class LoginViewModel extends AndroidViewModel {
-    private UserRepository repository;
+public class LoginViewModelFactory implements ViewModelProvider.Factory {
+    private final UserRepository repository;
 
-    public LoginViewModel(@NonNull Application application) {
-        super(application);
+    public LoginViewModelFactory(@NonNull Application application) {
+        super();
         repository = new UserRepository(application);
     }
 
