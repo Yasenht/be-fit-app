@@ -17,11 +17,11 @@ import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
-    private LoginViewModel loginViewModel;
+    public LoginViewModel loginViewModel;
     EditText username, passeword;
     Button navToRegister;
-    private EditText usernameEditText, passwordEditText;
-    private Button loginButton, registerButton;
+    public EditText usernameEditText, passwordEditText;
+    public Button loginButton, registerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
