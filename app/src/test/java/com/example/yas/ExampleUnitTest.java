@@ -42,37 +42,43 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public  void entryname()throws Exception {
+    //this testing for check entry userName
+    public  void entryName()throws Exception {
         Checking checked=new Checking();String realvalue;
         String name="";
-        realvalue=checked.processNameinput(name);
+        realvalue=checked.processNameinput(name);//this for if the user leaves the username field blank
         assertEquals("Please enter your name",realvalue);
 
         name=" yasen";
-        realvalue=checked.processNameinput(name);
+        realvalue=checked.processNameinput(name);//this for if user take speace in the beign field
         assertEquals("name of user content speaces in the bigein ",realvalue);
 
         name="yasen";
-        realvalue=checked.processNameinput(name);
+        realvalue=checked.processNameinput(name);//this for the correct entry
         assertEquals("yasen",realvalue);
     }
 
-    public  void entrypassword()throws Exception {
+    //
+    // this testing for check entry password
+     @Test
+    public  void entryPassword()throws Exception {
         Checking checked=new Checking();String realvalue;
         String pass="";
-        realvalue=checked.processpassinput(pass);
+        realvalue=checked.processPassInput(pass);//this for if the user leaves the password field blank
         assertEquals("Please enter your password",realvalue);
 
         pass="12345678";
-        realvalue=checked.processpassinput(pass);
+        realvalue=checked.processPassInput(pass);//this for if the user entres a password of less than eight characters
         assertEquals("this password less than eight boxes",realvalue);
 
-        pass="12345678999";
-        realvalue=checked.processpassinput(pass);
+        pass="123456789999898989870";
+        realvalue=checked.processPassInput(pass);//this for if the user entres a password of more than twenty characters
         assertEquals("this password more than 20 boxes",realvalue);
+
         pass="987654321";
-        realvalue=checked.processpassinput(pass);
+        realvalue=checked.processPassInput(pass);//this for the correct entry password
         assertEquals("987654321",realvalue);
+
     }
 
 }

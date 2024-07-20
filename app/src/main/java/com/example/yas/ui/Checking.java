@@ -18,7 +18,7 @@ public Checking(){}
         else {return name;}
 
     }
-    public String processpassinput(String  pass)
+    public String processPassInput(String  pass)
     {
         if(pass.isEmpty())
         {
