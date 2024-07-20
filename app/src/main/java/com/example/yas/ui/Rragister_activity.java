@@ -32,6 +32,7 @@ public class Rragister_activity extends AppCompatActivity {
         }
         EditText usernameEditText = findViewById(R.id.reg_username);
         EditText passwordEditText = findViewById(R.id.reg_password);
+        EditText passwordEditText1 = findViewById(R.id.password);
         EditText dobEditText = findViewById(R.id.dob);
         Button registerButton = findViewById(R.id.register);
 
@@ -40,11 +41,22 @@ public class Rragister_activity extends AppCompatActivity {
                 String name = usernameEditText.getText().toString().trim();
                 String dob = dobEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
-
+                String password1 = passwordEditText1.getText().toString().trim();
                 if (name.isEmpty() || dob.isEmpty() || password.isEmpty()) {
                     Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(password.length()<=8 &&password.length()>20)
+                {
+                    Toast.makeText(this, "this password less than eight boxes", Toast.LENGTH_SHORT).show();
+
+                    if(!(password ==password1))
+                    {
+                        Toast.makeText(this, "the entered password  dose not match the confirmation code", Toast.LENGTH_SHORT).show();
+                        return;
+                    }return;
+                }
+
                 User user = new User();
                 user.setUsername(name);
                 user.setDob(dob);

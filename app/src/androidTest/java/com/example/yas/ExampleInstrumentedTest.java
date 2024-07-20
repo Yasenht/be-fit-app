@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+import com.example.yas.ui.Login;
+
 /**
  * Instrumented test, which will execute on an Android device.
  *
@@ -23,4 +25,5 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.yas", appContext.getPackageName());
     }
+
 }

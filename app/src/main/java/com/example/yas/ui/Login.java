@@ -39,7 +39,6 @@ public class Login extends AppCompatActivity {
         passwordEditText = findViewById(R.id.log_password);
         loginButton = findViewById(R.id.login);
         registerButton = findViewById(R.id.nav_to_register);
-
         loginButton.setOnClickListener(view -> {
             String username = usernameEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
@@ -47,6 +46,7 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
+
             try {
                 loginViewModel.getUserByEmailAndPassword(username, password).observe(this, (user) -> {
                     if (user != null && !user.getUsername().isEmpty()) {
@@ -55,7 +55,7 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(this, "WELCOME " + user.getUsername(), Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(this, "LOGIN is failed, user not found.", Toast.LENGTH_LONG).show();
-//                        Log.e("INVALID_LOGIN", "LOGIN is failed.");
+
                     }
                 });
             } catch (Exception e) {
@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
         registerButton.setOnClickListener(view -> {
             Intent obj2 = new Intent(Login.this, Rragister_activity.class);
             startActivity(obj2);
-           // Toast.makeText(this, "Sorry ; the entry is wrong", Toast.LENGTH_LONG).show();
+
 
         });
 
