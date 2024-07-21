@@ -6,11 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
-
+    <include layout="@layout/toolbar"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:scaleType="centerCrop"
+        />
 </RelativeLayout>
